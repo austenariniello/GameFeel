@@ -7,6 +7,7 @@ public class EnemyScript : MonoBehaviour
 
     public float rightPos = 6.0f;
     public float leftPos = -6.0f;
+    public float speed = 0.04f;
     private bool moveLeft;
 
     // Start is called before the first frame update
@@ -32,10 +33,10 @@ public class EnemyScript : MonoBehaviour
     private IEnumerator Move(){
         while(true) {
             if(moveLeft) {
-                transform.Translate(-0.04f, 0, 0);
+                transform.Translate(-1*speed, 0, 0);
             }
             else {
-                transform.Translate(0.04f, 0, 0);
+                transform.Translate(speed, 0, 0);
             }
             yield return null;
         }
