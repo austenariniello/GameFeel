@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DustScript : MonoBehaviour
 {
+
+    public ParticleSystem dustTrail;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,9 @@ public class DustScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void DustTrail(){
+
     }
 }
