@@ -13,6 +13,8 @@ public class PlayerControls : MonoBehaviour
     public ParticleSystem dustTrail;
     public ParticleSystem dustCloud;
 
+    public CameraShake cameraShake;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class PlayerControls : MonoBehaviour
         
         if ((grounded) && (Input.GetButtonDown("Jump"))) {
             body.AddForce(new Vector2(0, speed.y), ForceMode2D.Impulse);
+            
         }
         
         Vector3 movement = new Vector3(speed.x * inputX, 0);
