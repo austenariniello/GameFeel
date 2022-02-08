@@ -9,6 +9,10 @@ public class PlayerControls : MonoBehaviour
     private bool grounded;
     private Rigidbody2D body;
 
+    //Dust Particle Effects
+    public ParticleSystem dustTrail;
+    public ParticleSystem dustCloud;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +23,10 @@ public class PlayerControls : MonoBehaviour
     void Update()
     {
         float inputX = Input.GetAxis("Horizontal");
+        
+        if ((grounded) && (inputX != 0)) {
+            MakeDustTrail();
+        }
         
         if ((grounded) && (Input.GetButtonDown("Jump"))) {
             body.AddForce(new Vector2(0, speed.y), ForceMode2D.Impulse);
@@ -35,6 +43,7 @@ public class PlayerControls : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.CompareTag("Ground")) {
             grounded = true;
+            MakeDustCloud();
         }
     }
 
@@ -43,6 +52,13 @@ public class PlayerControls : MonoBehaviour
             grounded = false;
         }
     }
+
+    private void MakeDustTrail() {
+        dustTrail.Play();
+    }
     
+    private void MakeDustCloud() {
+        dustCloud.Play();
+    }
     
 }
