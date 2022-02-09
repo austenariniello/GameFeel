@@ -73,9 +73,9 @@ public class EnemyScript : MonoBehaviour
 
         Destroy(collision.gameObject);
         health -= 1;
-        //if(flashToggle.isOn)
-        //   sr.material = matWhite;
-        sr.material = matWhite;
+        if(flashToggle.isOn)
+           sr.material = matWhite;
+        //sr.material = matWhite;
         if (health <= 0)
         {
             // TODO Add particle burst
@@ -83,7 +83,8 @@ public class EnemyScript : MonoBehaviour
         }
         else
         {
-            Invoke("ResetMaterial", .1f);
+            if (flashToggle.isOn)
+                Invoke("ResetMaterial", .1f);
         
         }
 
@@ -92,7 +93,6 @@ public class EnemyScript : MonoBehaviour
     void ResetMaterial()
     {
         sr.material = matDefault;
-    
     }
 
     private void SomethingElseOnTriggerEnter2D(Collider2D collision) 
@@ -100,8 +100,11 @@ public class EnemyScript : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             Destroy(collision.gameObject);
+
+            if (flashToggle.isOn)
+                sr.material = matWhite;
+
             health -= 1;
-            sr.material = matWhite;
             if (health <= 0)
             {
                 // TODO Add particle burst
