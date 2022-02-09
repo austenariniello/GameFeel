@@ -8,6 +8,7 @@ public class PlayerControls : MonoBehaviour
     // Toggles
     public Toggle DustToggle;
     public Toggle SFXToggle;
+    public Toggle ShakeToggle;
 
     public Vector2 speed;
     private bool grounded;
@@ -18,6 +19,8 @@ public class PlayerControls : MonoBehaviour
     public ParticleSystem dustTrail;
     public ParticleSystem dustCloud;
 
+    // Camera Shake
+    public GameObject myCamera;
     public CameraShake cameraShake;
 
     public AudioSource jumpSFX;
@@ -27,6 +30,7 @@ public class PlayerControls : MonoBehaviour
     {
         body = gameObject.GetComponent<Rigidbody2D>();
         facingRight = true;
+        cameraShake = myCamera.GetComponent<CameraShake>();
     }
 
     // Update is called once per frame
@@ -55,6 +59,14 @@ public class PlayerControls : MonoBehaviour
 
             if(DustToggle.isOn)
                 MakeDustCloud();
+        }
+
+        if(other.gameObject.CompareTag("Enemy")) {
+            if(ShakeToggle.isOn)
+            {
+                StartCoroutine(cameraShake.Shake(.15f, .4f));
+            }
+            
         }
     }
 

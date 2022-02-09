@@ -7515,6 +7515,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1561568801}
     - target: {fileID: 5455990957497128729, guid: 7a8176006080443bb8502023916a679c, type: 3}
+      propertyPath: myCamera
+      value: 
+      objectReference: {fileID: 519420028}
+    - target: {fileID: 5455990957497128729, guid: 7a8176006080443bb8502023916a679c, type: 3}
       propertyPath: SFXToggle
       value: 
       objectReference: {fileID: 18628655}
@@ -7534,6 +7538,10 @@ PrefabInstance:
       propertyPath: FlashToggle
       value: 
       objectReference: {fileID: 1743302174}
+    - target: {fileID: 5455990957497128729, guid: 7a8176006080443bb8502023916a679c, type: 3}
+      propertyPath: ShakeToggle
+      value: 
+      objectReference: {fileID: 1274140398}
     - target: {fileID: 5455990957497128729, guid: 7a8176006080443bb8502023916a679c, type: 3}
       propertyPath: ScreenShakeToggle
       value: 

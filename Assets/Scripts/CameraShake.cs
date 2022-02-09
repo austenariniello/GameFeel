@@ -25,13 +25,5 @@ public class CameraShake : MonoBehaviour
         transform.localPosition = originalPos;
 
     }
-
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.S))
-        {
-            StartCoroutine(Shake(.15f, .4f));
-        }
-    }
     
 }
