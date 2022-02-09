@@ -9,6 +9,7 @@ public class PlayerControls : MonoBehaviour
     public Toggle DustToggle;
     public Toggle SFXToggle;
     public Toggle ShakeToggle;
+    public Toggle flashToggle;
 
     public Vector2 speed;
     private bool grounded;
@@ -29,6 +30,7 @@ public class PlayerControls : MonoBehaviour
     void Start()
     {
         body = gameObject.GetComponent<Rigidbody2D>();
+        facingRight = true;
         facingRight = true;
         cameraShake = myCamera.GetComponent<CameraShake>();
     }
