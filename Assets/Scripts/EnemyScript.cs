@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-
+    public int health = 100;
     public float rightPos = 6.0f;
     public float leftPos = -6.0f;
     public float speed = 0.04f;
@@ -40,5 +40,13 @@ public class EnemyScript : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+            Destroy(gameObject);
     }
 }
