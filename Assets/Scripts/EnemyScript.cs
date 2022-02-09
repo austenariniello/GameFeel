@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class EnemyScript : MonoBehaviour
 {
     public Toggle flashToggle;
+    public Toggle DustTrailToggle;
+    public ParticleSystem dustTrail;
     public int health = 100;
     public float rightPos = 6.0f;
     public float leftPos = -6.0f;
@@ -47,7 +49,13 @@ public class EnemyScript : MonoBehaviour
             }
             else {
                 transform.Translate(speed, 0, 0);
+
             }
+
+            if(DustTrailToggle.isOn){
+                    dustTrail.Play();
+                }
+                
             yield return null;
         }
     }
