@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class PlayerControls : MonoBehaviour
 {
     // Toggles
-    public Toggle DustToggle;
+    public Toggle DustTrailToggle;
+    public Toggle DustCloudToggle;
     public Toggle SFXToggle;
     public Toggle ShakeToggle;
     public Toggle flashToggle;
@@ -40,7 +41,7 @@ public class PlayerControls : MonoBehaviour
     {
         float inputX = Input.GetAxis("Horizontal");
         
-        if ((grounded) && (inputX != 0) && (DustToggle.isOn)) {
+        if ((grounded) && (inputX != 0) && (DustTrailToggle.isOn)) {
             MakeDustTrail();
         }
         
@@ -59,7 +60,7 @@ public class PlayerControls : MonoBehaviour
         if(other.gameObject.CompareTag("Ground")) {
             grounded = true;
 
-            if(DustToggle.isOn)
+            if(DustCloudToggle.isOn)
                 MakeDustCloud();
         }
 
